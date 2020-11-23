@@ -14,6 +14,7 @@ cargo install --git https://github.com/Sprillow/cmdchatter
 ```
 
 ### Running
+```bash
 cd /a/directory/to/install/persist/and/run/cmdchatter
 RUST_LOG=none cmdchatter
 ```
