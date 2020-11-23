@@ -117,29 +117,33 @@ async fn async_main() {
         }
     }
 
-    let sb = conductor.signal_broadcaster().await;
-    for sender in sb.0.into_iter() {
-        tokio::task::spawn(async move {
-            let mut r = sender.subscribe();
-            loop {
-                if let Some(Ok(signal)) = r.next().await {
-                    if let Signal::App(_, bytes) = signal {
-                        match Message::try_from(bytes) {
-                            Ok(msg) => {
-                                display_message(msg);
-                            }
-                            Err(e) => {
-                                println!("err {}", e);
+    match conductor.clone().add_signal_channel().await {
+        Ok(mut receiver) => {
+            tokio::task::spawn(async move {
+                loop {
+                    if let Some(Ok(signal)) = receiver.next().await {
+                        if let Signal::App(_, bytes) = signal {
+                            match Message::try_from(bytes) {
+                                Ok(msg) => {
+                                    display_message(msg);
+                                }
+                                Err(e) => {
+                                    println!("err {}", e);
+                                }
                             }
                         }
+                    } else {
+                        debug!("Closing interface: signal stream empty");
+                        break;
                     }
-                } else {
-                    debug!("Closing interface: signal stream empty");
-                    break;
                 }
-            }
-        });
-    }
+            });
+        }
+        Err(e) => {
+            println!("error while attaching signal listener {}", e);
+            panic!();
+        }
+    };
 
     /* run the readline loop */
     println!("type anything and hit enter to send a message");
@@ -273,9 +277,9 @@ async fn install_or_passthrough(conductor: &ConductorHandle) -> ConductorApiResu
         }
         _ => cell_ids.first().unwrap().clone(),
     };
-    // ONLY do this so that there is signal broadcaster to
-    // plug into
-    let _port = conductor.clone().add_app_interface(0).await?;
+    // HISTORICAL, we had to do it this way, without
+    // having had a way to call add_signal_channel
+    // let _port = conductor.clone().add_app_interface(0).await?;
     Ok(cell_id)
 }
 
