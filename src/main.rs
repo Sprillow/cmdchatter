@@ -9,9 +9,7 @@ use holochain::{
     core::{ribosome::ZomeCallInvocation, signal::Signal, workflow::ZomeCallInvocationResult},
 };
 use holochain_keystore::KeystoreSenderExt;
-use holochain_p2p::kitsune_p2p::{
-    dependencies::url2, KitsuneP2pConfig, ProxyAcceptConfig, ProxyConfig, TransportConfig,
-};
+use holochain_p2p::kitsune_p2p::{KitsuneP2pConfig, ProxyAcceptConfig, ProxyConfig, TransportConfig, dependencies::url2::{self, Url2}};
 use holochain_types::{
     app::{CellNick, InstalledAppId, InstalledCell},
     cell::CellId,
@@ -217,9 +215,12 @@ async fn conductor_handle() -> ConductorHandle {
             override_host: None,
             override_port: None,
         }),
-        proxy_config: ProxyConfig::LocalProxyServer {
-            proxy_accept_config: Some(ProxyAcceptConfig::RejectAll),
-        },
+        // proxy_config: ProxyConfig::LocalProxyServer {
+        //     proxy_accept_config: Some(ProxyAcceptConfig::RejectAll),
+        // },
+        proxy_config: ProxyConfig::RemoteProxyClient {
+          proxy_url: Url2::parse("kitsune-proxy://CIW6PxKxsPPlcuvUCbMcKwUpaMSmB7kLD8xyyj4mqcw/kitsune-quic/h/proxy.holochain.org/p/5778/--")
+        }
     });
 
     /*
