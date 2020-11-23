@@ -347,7 +347,6 @@ async fn activate_app(conductor_handle: &ConductorHandle) -> ConductorApiResult<
         .unwrap_or(Ok(()))
 }
 
-/// Reads the [Dna] from disk and parses to [SerializedBytes]
 async fn read_parse_dna(dna_bytes: Vec<u8>) -> ConductorApiResult<DnaFile> {
     let dna = DnaFile::from_file_content(&dna_bytes).await?;
     Ok(dna)
