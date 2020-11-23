@@ -1,0 +1,36 @@
+[package]
+name = "cmdchatter"
+version = "0.1.0"
+authors = ["Connor Turland <connorturland@gmail.com>"]
+edition = "2018"
+
+# [lib]
+# name = "builtin"
+# crate-type = ["staticlib"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+serde = "1.0.104"
+rustyline = "7.0.0"
+tokio = { version = "0.2.11", features = [ "full" ] }
+futures = "0.3.1"
+human-panic = "1.0.3"
+structopt = "0.3.11"
+tracing = "=0.1.21"
+# holochain_p2p = {git = "https://github.com/holochain/holochain.git", rev = "bf21c837f450f606fb87cf5746c1ea15d8ba0ca2", package = "holochain_p2p"}
+# holochain_types = {git = "https://github.com/holochain/holochain.git", rev = "bf21c837f450f606fb87cf5746c1ea15d8ba0ca2", package = "holochain_types"}
+# holochain_zome_types = {git = "https://github.com/holochain/holochain.git", rev = "bf21c837f450f606fb87cf5746c1ea15d8ba0ca2", package = "holochain_zome_types"}
+# holochain_keystore = {git = "https://github.com/holochain/holochain.git", rev = "bf21c837f450f606fb87cf5746c1ea15d8ba0ca2", package = "holochain_keystore"}
+# holochain = {git = "https://github.com/holochain/holochain.git", rev = "bf21c837f450f606fb87cf5746c1ea15d8ba0ca2", package = "holochain"}
+# hdk3 = {git = "https://github.com/holochain/holochain.git", rev = "bf21c837f450f606fb87cf5746c1ea15d8ba0ca2", package = "hdk3"}
+holochain_p2p = { path = "../holochain/crates/holochain_p2p"}
+holochain_types = { path = "../holochain/crates/types"}
+holochain_zome_types = { path = "../holochain/crates/zome_types"}
+holochain_keystore = { path = "../holochain/crates/keystore"}
+holochain = { path = "../holochain/crates/holochain"}
+hdk3 = { path = "../holochain/crates/hdk"}
+
+[patch.crates-io]
+rkv = { git = "https://github.com/holochain/rkv.git", branch = "master" }
+lmdb-rkv = { git = "https://github.com/holochain/lmdb-rs.git" }

@@ -1,0 +1,10 @@
+{
+  "name": "cmdchat",
+  "uuid": "",
+  "properties": null,
+  "zomes": {
+    "cmdchat": {
+      "wasm_path": "../cmdchat/target/wasm32-unknown-unknown/release/cmdchat.wasm"
+    }
+  }
+}
