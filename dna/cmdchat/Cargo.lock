@@ -91,7 +91,7 @@ dependencies = [
 [[package]]
 name = "fixt"
 version = "0.0.1"
-source = "git+https://github.com/holochain/holochain.git?rev=bf21c837f450f606fb87cf5746c1ea15d8ba0ca2#bf21c837f450f606fb87cf5746c1ea15d8ba0ca2"
+source = "git+https://github.com/holochain/holochain.git?branch=add-signal-channel#4c535e27aed0cd1364274d90dc1f49c8ec8b6b4d"
 dependencies = [
  "holochain_serialized_bytes",
  "lazy_static",
@@ -124,12 +124,13 @@ checksum = "d7afe4a420e3fe79967a00898cc1f4db7c8a49a9333a29f8a4bd76a253d5cd04"
 [[package]]
 name = "hdk3"
 version = "0.0.1"
-source = "git+https://github.com/holochain/holochain.git?rev=bf21c837f450f606fb87cf5746c1ea15d8ba0ca2#bf21c837f450f606fb87cf5746c1ea15d8ba0ca2"
+source = "git+https://github.com/holochain/holochain.git?branch=add-signal-channel#4c535e27aed0cd1364274d90dc1f49c8ec8b6b4d"
 dependencies = [
  "hdk3_derive",
  "holo_hash",
  "holochain_wasmer_guest",
  "holochain_zome_types",
+ "paste",
  "serde",
  "serde_bytes",
  "thiserror",
@@ -138,7 +139,7 @@ dependencies = [
 [[package]]
 name = "hdk3_derive"
 version = "0.0.1"
-source = "git+https://github.com/holochain/holochain.git?rev=bf21c837f450f606fb87cf5746c1ea15d8ba0ca2#bf21c837f450f606fb87cf5746c1ea15d8ba0ca2"
+source = "git+https://github.com/holochain/holochain.git?branch=add-signal-channel#4c535e27aed0cd1364274d90dc1f49c8ec8b6b4d"
 dependencies = [
  "holochain_zome_types",
  "paste",
@@ -159,7 +160,7 @@ dependencies = [
 [[package]]
 name = "holo_hash"
 version = "0.0.1"
-source = "git+https://github.com/holochain/holochain.git?rev=bf21c837f450f606fb87cf5746c1ea15d8ba0ca2#bf21c837f450f606fb87cf5746c1ea15d8ba0ca2"
+source = "git+https://github.com/holochain/holochain.git?branch=add-signal-channel#4c535e27aed0cd1364274d90dc1f49c8ec8b6b4d"
 dependencies = [
  "base64",
  "blake2b_simd",
@@ -220,7 +221,7 @@ dependencies = [
 [[package]]
 name = "holochain_zome_types"
 version = "0.0.1"
-source = "git+https://github.com/holochain/holochain.git?rev=bf21c837f450f606fb87cf5746c1ea15d8ba0ca2#bf21c837f450f606fb87cf5746c1ea15d8ba0ca2"
+source = "git+https://github.com/holochain/holochain.git?branch=add-signal-channel#4c535e27aed0cd1364274d90dc1f49c8ec8b6b4d"
 dependencies = [
  "fixt",
  "holo_hash",
@@ -304,9 +305,9 @@ dependencies = [
 
 [[package]]
 name = "paste"
-version = "1.0.2"
+version = "1.0.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ba7ae1a2180ed02ddfdb5ab70c70d596a26dd642e097bb6fe78b1bde8588ed97"
+checksum = "7151b083b0664ed58ed669fcdd92f01c3d2fdbf10af4931a301474950b52bfa9"
 
 [[package]]
 name = "ppv-lite86"

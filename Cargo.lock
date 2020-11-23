@@ -763,11 +763,12 @@ checksum = "4443176a9f2c162692bd3d352d745ef9413eec5782a80d8fd6f8a1ac692a07f7"
 [[package]]
 name = "fixt"
 version = "0.0.1"
+source = "git+https://github.com/holochain/holochain.git?branch=add-signal-channel#4c535e27aed0cd1364274d90dc1f49c8ec8b6b4d"
 dependencies = [
  "holochain_serialized_bytes",
  "lazy_static",
  "parking_lot",
- "paste 1.0.2",
+ "paste 1.0.3",
  "rand 0.7.3",
  "rand_core 0.5.1",
  "serde",
@@ -1070,11 +1071,13 @@ checksum = "d7afe4a420e3fe79967a00898cc1f4db7c8a49a9333a29f8a4bd76a253d5cd04"
 [[package]]
 name = "hdk3"
 version = "0.0.1"
+source = "git+https://github.com/holochain/holochain.git?branch=add-signal-channel#4c535e27aed0cd1364274d90dc1f49c8ec8b6b4d"
 dependencies = [
  "hdk3_derive",
  "holo_hash",
  "holochain_wasmer_guest",
  "holochain_zome_types",
+ "paste 1.0.3",
  "serde",
  "serde_bytes",
  "thiserror",
@@ -1083,9 +1086,10 @@ dependencies = [
 [[package]]
 name = "hdk3_derive"
 version = "0.0.1"
+source = "git+https://github.com/holochain/holochain.git?branch=add-signal-channel#4c535e27aed0cd1364274d90dc1f49c8ec8b6b4d"
 dependencies = [
  "holochain_zome_types",
- "paste 1.0.2",
+ "paste 1.0.3",
  "proc-macro2 1.0.24",
  "quote 1.0.7",
  "syn 1.0.48",
@@ -1118,6 +1122,7 @@ checksum = "644f9158b2f133fd50f5fb3242878846d9eb792e445c893805ff0e3824006e35"
 [[package]]
 name = "holo_hash"
 version = "0.0.1"
+source = "git+https://github.com/holochain/holochain.git?branch=add-signal-channel#4c535e27aed0cd1364274d90dc1f49c8ec8b6b4d"
 dependencies = [
  "base64 0.12.3",
  "blake2b_simd",
@@ -1134,6 +1139,7 @@ dependencies = [
 [[package]]
 name = "holochain"
 version = "0.0.1"
+source = "git+https://github.com/holochain/holochain.git?branch=add-signal-channel#4c535e27aed0cd1364274d90dc1f49c8ec8b6b4d"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -1198,6 +1204,7 @@ dependencies = [
 [[package]]
 name = "holochain_keystore"
 version = "0.0.1"
+source = "git+https://github.com/holochain/holochain.git?branch=add-signal-channel#4c535e27aed0cd1364274d90dc1f49c8ec8b6b4d"
 dependencies = [
  "ghost_actor",
  "holo_hash",
@@ -1215,6 +1222,7 @@ dependencies = [
 [[package]]
 name = "holochain_legacy"
 version = "0.0.1"
+source = "git+https://github.com/holochain/holochain.git?branch=add-signal-channel#4c535e27aed0cd1364274d90dc1f49c8ec8b6b4d"
 dependencies = [
  "holochain_serialized_bytes",
  "serde",
@@ -1223,6 +1231,7 @@ dependencies = [
 [[package]]
 name = "holochain_p2p"
 version = "0.0.1"
+source = "git+https://github.com/holochain/holochain.git?branch=add-signal-channel#4c535e27aed0cd1364274d90dc1f49c8ec8b6b4d"
 dependencies = [
  "async-trait",
  "fixt",
@@ -1272,6 +1281,7 @@ dependencies = [
 [[package]]
 name = "holochain_state"
 version = "0.0.1"
+source = "git+https://github.com/holochain/holochain.git?branch=add-signal-channel#4c535e27aed0cd1364274d90dc1f49c8ec8b6b4d"
 dependencies = [
  "anyhow",
  "byteorder",
@@ -1307,6 +1317,7 @@ dependencies = [
 [[package]]
 name = "holochain_types"
 version = "0.0.1"
+source = "git+https://github.com/holochain/holochain.git?branch=add-signal-channel#4c535e27aed0cd1364274d90dc1f49c8ec8b6b4d"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -1343,6 +1354,7 @@ dependencies = [
 [[package]]
 name = "holochain_wasm_test_utils"
 version = "0.0.1"
+source = "git+https://github.com/holochain/holochain.git?branch=add-signal-channel#4c535e27aed0cd1364274d90dc1f49c8ec8b6b4d"
 dependencies = [
  "fixt",
  "holo_hash",
@@ -1395,6 +1407,7 @@ dependencies = [
 [[package]]
 name = "holochain_websocket"
 version = "0.0.1"
+source = "git+https://github.com/holochain/holochain.git?branch=add-signal-channel#4c535e27aed0cd1364274d90dc1f49c8ec8b6b4d"
 dependencies = [
  "futures",
  "holochain_serialized_bytes",
@@ -1413,6 +1426,7 @@ dependencies = [
 [[package]]
 name = "holochain_zome_types"
 version = "0.0.1"
+source = "git+https://github.com/holochain/holochain.git?branch=add-signal-channel#4c535e27aed0cd1364274d90dc1f49c8ec8b6b4d"
 dependencies = [
  "fixt",
  "holo_hash",
@@ -1647,6 +1661,7 @@ dependencies = [
 [[package]]
 name = "kitsune_p2p"
 version = "0.0.1"
+source = "git+https://github.com/holochain/holochain.git?branch=add-signal-channel#4c535e27aed0cd1364274d90dc1f49c8ec8b6b4d"
 dependencies = [
  "derive_more",
  "fixt",
@@ -1671,6 +1686,7 @@ dependencies = [
 [[package]]
 name = "kitsune_p2p_proxy"
 version = "0.0.1"
+source = "git+https://github.com/holochain/holochain.git?branch=add-signal-channel#4c535e27aed0cd1364274d90dc1f49c8ec8b6b4d"
 dependencies = [
  "base64 0.12.3",
  "blake2b_simd",
@@ -1693,6 +1709,7 @@ dependencies = [
 [[package]]
 name = "kitsune_p2p_transport_quic"
 version = "0.0.1"
+source = "git+https://github.com/holochain/holochain.git?branch=add-signal-channel#4c535e27aed0cd1364274d90dc1f49c8ec8b6b4d"
 dependencies = [
  "futures",
  "if-addrs",
@@ -1710,13 +1727,14 @@ dependencies = [
 [[package]]
 name = "kitsune_p2p_types"
 version = "0.0.1"
+source = "git+https://github.com/holochain/holochain.git?branch=add-signal-channel#4c535e27aed0cd1364274d90dc1f49c8ec8b6b4d"
 dependencies = [
  "derive_more",
  "futures",
  "ghost_actor",
  "nanoid",
  "once_cell",
- "paste 1.0.2",
+ "paste 1.0.3",
  "rmp-serde",
  "serde",
  "serde_json",
@@ -2271,9 +2289,9 @@ dependencies = [
 
 [[package]]
 name = "paste"
-version = "1.0.2"
+version = "1.0.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ba7ae1a2180ed02ddfdb5ab70c70d596a26dd642e097bb6fe78b1bde8588ed97"
+checksum = "7151b083b0664ed58ed669fcdd92f01c3d2fdbf10af4931a301474950b52bfa9"
 
 [[package]]
 name = "paste-impl"
@@ -3409,6 +3427,7 @@ dependencies = [
 [[package]]
 name = "test_wasm_common"
 version = "0.0.1"
+source = "git+https://github.com/holochain/holochain.git?branch=add-signal-channel#4c535e27aed0cd1364274d90dc1f49c8ec8b6b4d"
 dependencies = [
  "hdk3",
  "holochain_serialized_bytes",
