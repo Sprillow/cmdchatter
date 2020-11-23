@@ -29,7 +29,6 @@ use tokio::stream::StreamExt;
 use tracing::*;
 
 const INSTALLED_APP_ID: &str = "my_app_id";
-const MAGIC_CONDUCTOR_READY_STRING: &str = "Conductor ready.";
 
 const DATABASES_PATH: &'static str = "./databases";
 const CMDCHAT: &'static [u8] = include_bytes!("../dna/cmdchat.dna.gz");
@@ -75,15 +74,6 @@ async fn async_main() {
 
     let conductor = conductor_handle().await;
 
-    /*
-      DO OTHER THINGS I WANT TO DO HERE
-
-      conductor...
-
-      check if there are any installed apps/dnas/cells
-        if so, just continue and launch conductor / do nothing
-        if not, call install_app, and pass it the conductor handle
-    */
     let cell_id = match install_or_passthrough(&conductor).await {
         Err(e) => {
             error!("{:?}", e);
@@ -91,12 +81,6 @@ async fn async_main() {
         }
         Ok(cell_id) => cell_id,
     };
-
-    info!("Conductor successfully initialized.");
-    // This println has special meaning. Other processes can detect it and know
-    // that the conductor has been initialized, in particular that the admin
-    // interfaces are running, and can be connected to.
-    println!("{}", MAGIC_CONDUCTOR_READY_STRING);
 
     println!("fetching message history... please wait");
     let res = zome_call(
@@ -268,11 +252,11 @@ async fn install_or_passthrough(conductor: &ConductorHandle) -> ConductorApiResu
     let cell_ids = conductor.list_cell_ids().await?;
     let cell_id = match cell_ids.len() {
         0 => {
-            println!("The app must be installed, now installing");
+            println!("Don't see existing files or identity, so starting fresh...");
             let cell_id = install_app(&conductor).await?;
-            println!("The app has been installed, now activating");
+            println!("Installed, now activating...");
             activate_app(&conductor).await?;
-            println!("The app has been activated");
+            println!("Activated.");
             cell_id
         }
         _ => cell_ids.first().unwrap().clone(),
@@ -284,13 +268,14 @@ async fn install_or_passthrough(conductor: &ConductorHandle) -> ConductorApiResu
 }
 
 async fn install_app(conductor_handle: &ConductorHandle) -> ConductorApiResult<CellId> {
+    println!("Don't recognize you, so generating a new identity for you...");
     let agent_key = conductor_handle
         .keystore()
         .clone()
         .generate_sign_keypair_from_pure_entropy()
         .await?;
 
-    // Our test dna
+    // Our dna
     let dnas: Vec<(Vec<u8>, CellNick)> = vec![(CMDCHAT.into(), "cmdchat".to_string())];
 
     let tasks = dnas.into_iter().map(|(dna_bytes, nick)| async {
