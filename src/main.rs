@@ -9,7 +9,7 @@ use holochain::{
     core::{ribosome::ZomeCallInvocation, signal::Signal, workflow::ZomeCallInvocationResult},
 };
 use holochain_keystore::KeystoreSenderExt;
-use holochain_p2p::kitsune_p2p::{KitsuneP2pConfig, ProxyAcceptConfig, ProxyConfig, TransportConfig, dependencies::url2::{self, Url2}};
+use holochain_p2p::kitsune_p2p::{KitsuneP2pConfig, ProxyConfig, TransportConfig, dependencies::url2::{self, Url2}};
 use holochain_types::{
     app::{CellNick, InstalledAppId, InstalledCell},
     cell::CellId,
